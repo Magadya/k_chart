@@ -400,7 +400,7 @@ class DepthChartPainter extends CustomPainter {
 
   double getSellX(int position) => position * mSellPointWidth! + mDrawWidth;
 
-  getTextPainter(String text, [Color color = Colors.white]) => TextPainter(
+  getTextPainter(String text, [Color color = Colors.black]) => TextPainter(
       text:
           TextSpan(text: "$text", style: TextStyle(color: color, fontSize: 10)),
       textDirection: TextDirection.ltr);
@@ -413,10 +413,10 @@ class DepthChartPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(DepthChartPainter oldDelegate) {
-//    return oldDelegate.mBuyData != mBuyData ||
-//        oldDelegate.mSellData != mSellData ||
-//        oldDelegate.isLongPress != isLongPress ||
-//        oldDelegate.pressOffset != pressOffset;
+   return oldDelegate.mBuyData != mBuyData ||
+       oldDelegate.mSellData != mSellData ||
+       oldDelegate.isLongPress != isLongPress ||
+       oldDelegate.pressOffset != pressOffset;
     return true;
   }
 }
