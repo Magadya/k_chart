@@ -9,19 +9,20 @@ enum MainState { MA, BOLL, NONE }
 enum SecondaryState { MACD, KDJ, RSI, WR, CCI, NONE }
 
 class TimeFormat {
-  static const List<String> YEAR_MONTH_DAY = [yyyy, '-', mm, '-', dd];
+  static const List<String> YEAR_MONTH_DAY = [dd, '-', mm, '-', yyyy];
   static const List<String> YEAR_MONTH_DAY_WITH_HOUR = [
-    yyyy,
+    HH,
+    ':',
+    nn,
+    ' ',
+    dd,
     '-',
     mm,
     '-',
-    dd,
-    ' ',
-    HH,
-    ':',
-    nn
+    yyyy,
   ];
 }
+
 
 class KChartWidget extends StatefulWidget {
   final List<KLineEntity>? datas;
