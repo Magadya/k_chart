@@ -9,17 +9,18 @@ enum MainState { MA, BOLL, NONE }
 enum SecondaryState { MACD, KDJ, RSI, WR, CCI, NONE }
 
 class TimeFormat {
-  static const List<String> YEAR_MONTH_DAY = [dd, '-', mm, '-', yyyy];
+  static const List<String> YEAR_MONTH_DAY = [yyyy, '-', mm, '-', dd];
+  static const List<String> DAY_MONTH_YEAR = [dd, '-', mm, '-', yy];
   static const List<String> YEAR_MONTH_DAY_WITH_HOUR = [
-    HH,
-    ':',
-    nn,
-    ' ',
-    dd,
+    yyyy,
     '-',
     mm,
     '-',
-    yyyy,
+    dd,
+    ' ',
+    HH,
+    ':',
+    nn
   ];
 }
 
@@ -72,7 +73,7 @@ class KChartWidget extends StatefulWidget {
     this.showInfoDialog = true,
     this.materialInfoDialog = true,
     this.translations = kChartTranslations,
-    this.timeFormat = TimeFormat.YEAR_MONTH_DAY,
+    this.timeFormat = TimeFormat.DAY_MONTH_YEAR,
     this.onLoadMore,
     this.fixedLength = 2,
     this.maDayList = const [5, 10, 20],
