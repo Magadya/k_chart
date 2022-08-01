@@ -44,7 +44,7 @@ abstract class BaseChartPainter extends CustomPainter {
   double mDataLen = 0.0; //数据占屏幕总长度
   final ChartStyle chartStyle;
   late double mPointWidth;
-  List<String> mFormats = [yyyy, '-', mm, '-', dd, ' ', HH, ':', nn]; //格式化时间
+  List<String> mFormats = [dd, '-', mm, '-', yyyy, ' ', HH, ':', nn]; //格式化时间
 
   BaseChartPainter(
     this.chartStyle, {
@@ -78,7 +78,7 @@ abstract class BaseChartPainter extends CustomPainter {
     }
 
     if (mItemCount < 2) {
-      mFormats = [yyyy, '-', mm, '-', dd, ' ', HH, ':', nn];
+      mFormats = [dd, '-', mm, '-', yyyy, ' ', HH, ':', nn];
       return;
     }
 
@@ -88,13 +88,13 @@ abstract class BaseChartPainter extends CustomPainter {
     time ~/= 1000;
     //月线
     if (time >= 24 * 60 * 60 * 28)
-      mFormats = [yy, '-', mm];
+      mFormats = [mm, '-', yy];
     //日线等
     else if (time >= 24 * 60 * 60)
-      mFormats = [yy, '-', mm, '-', dd];
+      mFormats = [dd, '-', mm, '-', yy];
     //小时线等
     else
-      mFormats = [mm, '-', dd, ' ', HH, ':', nn];
+      mFormats = [dd, '-', mm, ' ', HH, ':', nn];
   }
 
   @override
